@@ -1,0 +1,14 @@
+---
+toc: true
+categories: 
+  - statistics
+  - python
+date: '2025-05-20'
+title: "CHEG304 Python"
+subtitle: "Providing a resource for doing CHEG304 coursework with python instead of matlab"
+---
+
+
+Every UD chemical engineering student takes CHEG304 "Random Variability in Chemical Processes". The professor is lovely, but they were taught matlab and therefore share helpful matlab functions. Over a week I put together this pamphlet citing the functions our professor shared and then pointing to python functions that are functionally similar if not the exact same. I also included tons of examples of how to use some of the functions along with plenty of helpful warnings and notes.
+
+The book is free to access [here](https://kylecapybara.github.io/pycheg304/)

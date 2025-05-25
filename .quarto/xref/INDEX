@@ -1,20 +1,26 @@
 {
+  "posts/heat/index.qmd": {
+    "index.html": "752f3ea0"
+  },
+  "projects/proj.qmd": {
+    "proj.html": "d91ec931"
+  },
+  "projects/pfd maker/index.qmd": {
+    "index.html": "68ac8285"
+  },
+  "projects/304/index.qmd": {
+    "index.html": "afaf1d2d"
+  },
+  "projects/304 honors/index.qmd": {
+    "index.html": "7a61dff8"
+  },
   "index.qmd": {
-    "index.html": "0235386b"
+    "index.html": "74e1cb67"
   },
   "about.qmd": {
-    "about.html": "4767571d"
-  },
-  "posts/post-with-code/index.qmd": {
-    "index.html": "69916a17"
-  },
-  "posts/welcome/index.qmd": {
-    "index.html": "0efb77b1"
+    "about.html": "f42f5cbd"
   },
   "blog.qmd": {
-    "blog.html": "2e20f8b0"
-  },
-  "posts/heat/index.qmd": {
-    "index.html": "d047097d"
+    "blog.html": "662e62bb"
   }
 }

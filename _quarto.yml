@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Kyle Wodehouse"
@@ -8,7 +9,10 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - text: Projects
+        href: projects/proj.qmd
       - blog.qmd
+
 
 format:
   html:

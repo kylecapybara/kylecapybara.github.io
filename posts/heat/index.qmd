@@ -1,7 +1,7 @@
 ---
 title: "Philadelphia Needs to Take Heat Seriously"
 author: "Kyle Wodehouse"
-date: "2025-05-23"
+date: "2024-02-14"
 image: "image.webp"
 ---
 
@@ -14,7 +14,7 @@ Union Transfer was a fantastic place to hear my favorite tracks like ‘Hope,’
 
 On top of filling streets with their big green beauty, trees also manage how much of the sun’s rays the ground can absorb, and cool down their soil through evapotranspiration. All this fights off the heat island effect. Trees are even more effective than other ground coverings like bushes or grass. The continued worsening of the heat island effect increases the need for more trees in urban areas.
 
-The issue is poor neighborhoods have less trees than wealthy neighborhoods. Formerly redlined areas–areas that received severely limited real estate investment —because the government allowed banks to consider lending to Black people ‘risky’—have fewer environmental amenities to help clean and cool the air, like trees. The city of Philadelphia's own interactive report on over 100,000 trees visually highlights the disparity. Trees evenly dot Fairmount and other uber wealthy neighborhoods, but run thin just north in Strawberry Mansion where the average household income is over $80,000 lower. And while the distribution is inequitable when considering economic class, trees in Philadelphia also stratify along lines of race—Strawberry Mansion is 98% Black.
+The issue is poor neighborhoods have less trees than wealthy neighborhoods. Formerly redlined areas–areas that received severely limited real estate investment because the government allowed banks to consider lending to Black people ‘risky’—have fewer environmental amenities to help clean and cool the air, like trees. The city of Philadelphia's own interactive report on over 100,000 trees visually highlights the disparity. Trees evenly dot Fairmount and other uber wealthy neighborhoods, but run thin just north in Strawberry Mansion where the average household income is over $80,000 lower. And while the distribution is inequitable when considering economic class, trees in Philadelphia also stratify along lines of race—Strawberry Mansion is 98% Black.
 
 ![Distribution of asthma cases in North Philly (darker means higher)](2.jpg)
 

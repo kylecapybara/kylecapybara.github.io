@@ -1,0 +1,49 @@
+% filename: carnot_block_3d.tex
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\tdplotsetmaincoords{90}{90}
+
+\begin{document}
+\begin{tikzpicture}[tdplot_main_coords, scale=0.8]
+
+    % Define coordinates of the block
+    \coordinate (A) at (0,0,0);
+    \coordinate (B) at (3,0,0);
+    \coordinate (C) at (3,3,0);
+    \coordinate (D) at (0,3,0);
+    \coordinate (E) at (0,0,3);
+    \coordinate (F) at (3,0,3);
+    \coordinate (G) at (3,3,3);
+    \coordinate (H) at (0,3,3);
+
+    \fill[fill=yellow!70] (A) -- (B) -- (C) -- (D) -- cycle;
+    \fill[fill=yellow!70] (E) -- (F) -- (G) -- (H) -- cycle;
+    \fill[fill=yellow!70] (A) -- (B) -- (F) -- (E) -- cycle;
+    \fill[fill=yellow!70] (B) -- (C) -- (G) -- (F) -- cycle;
+    \fill[fill=yellow!70] (C) -- (D) -- (H) -- (G) -- cycle;
+    \fill[fill=yellow!70] (D) -- (A) -- (E) -- (H) -- cycle;
+
+    \draw[thick,black] (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw[thick,black] (E) -- (F) -- (G) -- (H) -- cycle;
+    \draw[thick,black] (A) -- (E);
+    \draw[thick,black] (B) -- (F);
+    \draw[thick,black] (C) -- (G);
+    \draw[thick,black] (D) -- (H);
+
+    \coordinate (T_H) at (1.5, 1.5, 1.5);
+    \node at (T_H) {$T_H$};
+
+    \coordinate (T_C) at (0, 4, 0.67);
+    \node at (T_C) {$T_C$};
+
+    \coordinate (P) at (1.5,8,1.5);
+    \fill[red, opacity=0.6] (P) circle (20pt);
+    \draw[thick,black] (P) circle (20pt);
+    \node[red] at (1.5,8,2.5) {carnot engine};
+
+    \draw[thick, ->] (1.5,3.5,1.5) -- (1.5,7,1.5) node[midway, above] {$Q_H$};
+    \draw[thick, ->] (1.5,8,0.5) -- (1.5,8,-1) node[midway, right] {$W_S$};
+    \draw[thick, ->] (1.5,9,1.5) -- (1.5,12.5,1.5) node[midway, above] {$Q_C$};
+\end{tikzpicture}
+\end{document}

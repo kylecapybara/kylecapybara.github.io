@@ -1,0 +1,22 @@
+---
+toc: true
+categories: 
+  - latex
+  - gui
+  - python
+date: '2024-11'
+title: "Process Flow Diagram Maker"
+subtitle: "a small tkinter program to draw process flow diagrams and generate TikzPicture code"
+---
+
+
+Process Flow Diagrams (PFDs) are a useful tool in visualizing chemical engineering processes, but making them with tikzpictures is very annoying and slow. But if you use tikzpictures/latex  the diagram will be rendered as a vector graphic so you can zoom in without losing image quality. This project works at making them as easily as you'd edit a google slide show or something. 
+
+Here are some examples of PDFs I made with the help of my gui (the whole document is [here](https://github.com/kylecapybara/pfdmaker/blob/main/hw7latex/hw7.pdf))
+
+![example1](1.pdf)
+![example2](2.pdf)
+![example3](3.pdf)
+![example4](4.pdf)
+
+a writeup about the controls and the python file for this project can be found [here](https://github.com/kylecapybara/pfdmaker/)

@@ -1,0 +1,23 @@
+---
+toc: true
+categories: 
+  - statistics
+  - python
+date: '2025-05-20'
+title: "The Best Seat at UD"
+author:
+  - Quinlan Kraft
+  - Jackson Rau
+  - Braden Rogers
+  - Maxmillian Stratton
+  - Kyle Wodehouse
+subtitle: "An observational study on the chairs and desks around UD's campus"
+---
+
+
+Classroom ergonomics impact learning and it is of interest to find out which rooms line up with ergonomic gospel (the best) and which fall short (the worst). We analyzed desk measurements across various classrooms at the University of Delaware to determine which room contained the “best” desks for students. We measured four dimensions: desk length, desk width, seat height (floor to seat), and desk height (floor to writing surface). Using room labels from UD’s Central Inventory Classrooms (CIC), we examined trends related to room type and building. The “best” desk was determined by how closely its dimensions matched values provided by classroom ergonomics literature. Using a standardized 2-norm distance metric, Colburn Lab 366 was closest to [1] and Penny Hall 209 was closest to [2]. By the same metric, Memorial 48 and Gore 316 were furthest from [1] and Memorial 127 was furthest from [2].
+
+This was a project for the honors section of UD's CHE304 "Random Variability in CHemical Processes." My main contributions to the report were the literature review, writing the introduction and discussion, and all visualization and formatting. The full report on this study is available below.
+
+![bestseat_report](ieee_draft.pdf)
+

@@ -1,0 +1,15 @@
+---
+title: "Projects"
+listing:
+  - id: projects
+    contents: "*/index.qmd"
+    type: default
+    fields: [image, title, subtitle, categories]
+    sort: "date desc"
+    categories: cloud
+    sort-ui: false
+    filter-ui: false
+---
+
+::: {#projects}
+:::
