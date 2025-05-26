@@ -11,7 +11,7 @@
 <meta name="author" content="Braden Rogers">
 <meta name="author" content="Maxmillian Stratton">
 <meta name="author" content="Kyle Wodehouse">
-<meta name="dcterms.date" content="2025-05-20">
+<meta name="dcterms.date" content="2025-05-16">
 
 <title>The Best Seat at UD – Kyle Wodehouse</title>
 <style>
@@ -26,7 +26,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -73,6 +93,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -121,8 +170,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a>
+  <ul class="collapse">
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
+  <li><a href="#the-best-seat" id="toc-the-best-seat" class="nav-link" data-scroll-target="#the-best-seat">The Best Seat</a></li>
+  <li><a href="#the-worst-seat" id="toc-the-worst-seat" class="nav-link" data-scroll-target="#the-worst-seat">The Worst Seat</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -155,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 20, 2025</p>
+      <p class="date">May 16, 2025</p>
     </div>
   </div>
   
@@ -167,18 +231,224 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Classroom ergonomics impact learning and it is of interest to find out which rooms line up with ergonomic gospel (the best) and which fall short (the worst). We analyzed desk measurements across various classrooms at the University of Delaware to determine which room contained the “best” desks for students. We measured four dimensions: desk length, desk width, seat height (floor to seat), and desk height (floor to writing surface). Using room labels from UD’s Central Inventory Classrooms (CIC), we examined trends related to room type and building. The “best” desk was determined by how closely its dimensions matched values provided by classroom ergonomics literature. Using a standardized 2-norm distance metric, Colburn Lab 366 was closest to [1] and Penny Hall 209 was closest to [2]. By the same metric, Memorial 48 and Gore 316 were furthest from [1] and Memorial 127 was furthest from [2].</p>
-<p>This was a project for the honors section of UD’s CHE304 “Random Variability in CHemical Processes.” My main contributions to the report were the literature review, writing the introduction and discussion, and all visualization and formatting. The full report on this study is available below.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="ieee_draft.pdf" class="img-fluid"></p>
-<figcaption>bestseat_report</figcaption>
+<blockquote class="blockquote">
+<p>This was a project for the honors section of UD’s CHE304 “Random Variability in Chemical Processes.” My main contributions to the report were the literature review, writing the introduction and discussion, and all visualization and formatting. The full report on this study is available below.</p>
+</blockquote>
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>Classroom ergonomics impact learning and it is of interest to find out which rooms line up with ergonomic gospel (the best) and which fall short (the worst). We analyzed desk measurements across various classrooms at the University of Delaware to determine which room contained the “best” desks for students. We measured four dimensions: desk length, desk width, seat height (floor to seat), and desk height (floor to writing surface). Using room labels from UD’s Central Inventory Classrooms (CIC), we examined trends related to room type and building. The “best” desk was determined by how closely its dimensions matched values provided by classroom ergonomics literature. Using a standardized 2-norm distance metric, Colburn Lab 366 was closest to <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span> and Penny Hall 209 was closest to <span class="citation" data-cites="Ansari"><a href="#ref-Ansari" role="doc-biblioref">[2]</a></span>. By the same metric, Memorial 48 and Gore 316 were furthest from <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span> and Memorial 127 was furthest from <span class="citation" data-cites="Ansari"><a href="#ref-Ansari" role="doc-biblioref">[2]</a></span>.</p>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Chairs and the culture of sitting down developed in Ancient Egypt <span class="citation" data-cites="egypt"><a href="#ref-egypt" role="doc-biblioref">[3]</a></span>. Egyptian chairs, at least those preserved in tombs, look quite different from the 21st century chair. They sat closer to the ground and were made from lavish materials on a wooden frame—far from most UD chairs. One can only wonder if there is a historically accurate Egyptian chair chilling inside President Dennis Assanis’s home.</p>
+<p>Everyone has experienced, or is currently experiencing, the dreadful ergonomics of Smith 209. The backrest angle feels awkward for taking notes and the arm rests are egregiously high to the point where one cannot even relax the shoulders. On the other hand, Willard 319 features adjustable chairs and plentiful desk space disconnected from the chair itself.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Experiencing both immaculate and disastrous seating raises the question: what is the best seat at UD? To answer this question (and the funnier question of what is the worst seat at UD) we need to probe the population of desks around campus. Then, once a representative sample of desk and chair parameters is collected it can be analyzed as a whole and also compared to each other to figure out how UD’s desks fare overall and if any desks are fantastic or deeply flawed.</p>
+<p>Ergonomics researchers acknowledge the importance of ergonomics for students’ experience and conclude sitting in fixed tables and chairs lead to strained posture and poor experiences <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span>. A pair of studies <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span> <span class="citation" data-cites="Ansari"><a href="#ref-Ansari" role="doc-biblioref">[2]</a></span> measured college students in Iran and Sri Lanka and developed chair dimensions based on their knowledge of sitting ergonomics and certain quantiles of their anthropic college student measurements. <a href="#tbl-chair" class="quarto-xref">Table&nbsp;1</a> includes the measurements <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span> and <span class="citation" data-cites="Ansari"><a href="#ref-Ansari" role="doc-biblioref">[2]</a></span> determined were optimal for college student desks.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div id="tbl-chair" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-chair-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: <strong>Table 1.</strong> Design dimensions from <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span> and <span class="citation" data-cites="Ansari"><a href="#ref-Ansari" role="doc-biblioref">[2]</a></span>
+</figcaption>
+<div aria-describedby="tbl-chair-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Chair Feature</th>
+<th style="text-align: right;">Mohamed&nbsp;(in)</th>
+<th style="text-align: right;">Ansari&nbsp;(in)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">Seat height</td>
+<td style="text-align: right;">17.52</td>
+<td style="text-align: right;">17.32</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Desk height</td>
+<td style="text-align: right;">9.02</td>
+<td style="text-align: right;">7.48–11.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">Desk length</td>
+<td style="text-align: right;">17.83</td>
+<td style="text-align: right;">20.08</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">Desk width</td>
+<td style="text-align: right;">7.80</td>
+<td style="text-align: right;">25.59</td>
+</tr>
+</tbody>
+</table>
+</div>
 </figure>
 </div>
+<p>Using the dimensions provided by the literature, desks and chairs found in common UD lecture rooms, specifically rooms classified by the central classroom inventory (see <a href="#tbl-roomcodes" class="quarto-xref">Table&nbsp;2</a> for the room codes and descriptions), may be compared to a standard and the faults of poor seats may be understood from an objective angle rather than personal experiences of uncomfort while sitting in them.</p>
+<div id="tbl-roomcodes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-roomcodes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: <strong>Table 2.</strong> Central Classroom Types.
+</figcaption>
+<div aria-describedby="tbl-roomcodes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 5%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Classroom Type</th>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Auditorium</td>
+<td>AUD</td>
+<td>Fixed seating with tablet arms, theater style, tiered floor</td>
+</tr>
+<tr class="even">
+<td>Case Study Room</td>
+<td>CASE</td>
+<td>Movable seats behind fixed tables, theater style, tiered floor</td>
+</tr>
+<tr class="odd">
+<td>Flexible Seating</td>
+<td>FLEX</td>
+<td>Individual tablet arm chairs on wheels; can be configured as needed</td>
+</tr>
+<tr class="even">
+<td>Lecture Room</td>
+<td>LCTR</td>
+<td>Individual tablet arm chairs</td>
+</tr>
+<tr class="odd">
+<td>Problem Based Learning Room</td>
+<td>PBL</td>
+<td>Round or hexagon tables surrounded by 5 or 6 chairs</td>
+</tr>
+<tr class="even">
+<td>Seminar Room</td>
+<td>SMNR</td>
+<td>One large table surrounded by chairs</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="methods" class="level1">
+<h1>Methods</h1>
+<p>During data collection we started by identifying the building, room number, and room type that the measurements were taken in. Next, we identified the desk “type” that was being measured. When performing this step, each time we encountered a new desk “type”, we added it to a reference document with an image and description to catalog all different styles of desk encountered. Doing so allowed for easier data collection as descriptions and images didn’t have to be repeated between rooms when the desks were of the same “type”, and could instead be generalized per desk “type”. Now it’s Morbin’ time.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>Next, we took measurements of the desks. We measured the height from the floor to the tallest point of the seat of the desk (i.e., where someone would sit) and then measured the height from the floor to the tallest point of the physical desk (i.e., the writing surface). For both of these measurements, since the seat and desk surface might be angled, we measured their highest points for consistency. Lastly, we measured the width and length of the “usable” desk area (i.e., not including the armrest portion) by approximating it as a rectangle. For shared tables or desks, this was calculated by finding the overall area and then dividing by the number of seats at the table, thus giving the usable area per person at the table. This data was collected in a spreadsheet application with the following columns: building, room number, room type, desk type, seat height, desk height, desk width, and desk length.</p>
+</section>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<!-- ![This is a sample image caption.](image.png){#fig-sample}  -->
+<section id="descriptive-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h2>
+<p>This section may feel like figure spam. <a href="#fig-hist" class="quarto-xref">Figure&nbsp;1</a> contains a histogram of the measured desk areas. This shows how the entire population of desk areas is distributed. Most desks are around 200 in<span class="math inline">\(^2\)</span> with very few above 600 in<span class="math inline">\(^2\)</span>. The super outlier is Gore 316.</p>
+<div id="fig-hist" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="vis/hist.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Histogram of Desk Area (in<span class="math inline">\(^2\)</span>)
+</figcaption>
+</figure>
+</div>
+<p>Since the vast majority of rooms we measured were labeled by UD’s course inventory, we can consider the different classes of rooms^[Not to be confused with classrooms.} (<a href="#tbl-roomcodes" class="quarto-xref">Table&nbsp;2</a>) as different populations. The areas of these different populations are visualized as box plots in <a href="#fig-boxplots" class="quarto-xref">Figure&nbsp;2</a>.</p>
+<div id="fig-boxplots" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-boxplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="vis/boxplots.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-boxplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Box Plots of different CIC labels
+</figcaption>
+</figure>
+</div>
+<p>The different styles of rooms have quite different desk areas! Perhaps the auditorium desks are there for a bare minimum, multi-purpose room and the project based learning and case study rooms lend themselves to more desk space for cracking open some cases or problem sets. This is complete conjecture.</p>
+<p>Now we shift focus from desk area towards seat and desk height from the floor. <a href="#fig-seatdeskheight" class="quarto-xref">Figure&nbsp;3</a> shows the relationship between how high the seat is from the ground and how high the desk surface is from the seat for the different room classes.</p>
+<div id="fig-seatdeskheight" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-seatdeskheight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="vis/height vs width.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-seatdeskheight-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Seat Height vs.&nbsp;Distance Between Desk and Seat by room label
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-rectangles" class="quarto-xref">Figure&nbsp;4</a> is a visually busy yet interesting representation of the desk width and length. The red and purple rectangles are values from the literature and clearly a large subset of our data has a smaller width and length than <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span>. Not a single desk had a width as thin as <span class="citation" data-cites="Ansari"><a href="#ref-Ansari" role="doc-biblioref">[2]</a></span> which raises questions about what is going on with <span class="citation" data-cites="Ansari"><a href="#ref-Ansari" role="doc-biblioref">[2]</a></span>. Another interesting thing is you can kinda see that the majority of desks will be around that 200 in<span class="math inline">\(^2\)</span> sweet spot in <a href="#fig-hist" class="quarto-xref">Figure&nbsp;1</a> since that 14-17 in range is where a square would have an area of 200 in<span class="math inline">\(^2\)</span> or so.</p>
+<div id="fig-rectangles" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rectangles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="vis/rectangles.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rectangles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Length and Width measurements as Rectangles
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-rect_cat" class="quarto-xref">Figure&nbsp;5</a> contains information similar to the box plot, but gives more information about the shapes of the desks for the different labels. The auditorium still shows up as an odd one out—a singleton standing lonely outside the rest of the data. Sad sad singleton.</p>
+<div id="fig-rect_cat" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rect_cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="vis/categorical_lw.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rect_cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Desk Length vs.&nbsp;Desk Width, Categorized
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-best-seat" class="level2">
+<h2 class="anchored" data-anchor-id="the-best-seat">The Best Seat</h2>
+<p>When calculating the seat whose parameters are closest to the literature provided parameters, we need to borrow a wrench from the ml toolbox and account for the difference in spread and magnitude of the different factors. For instance, if we just sloppily found the 2-norm distance between all of our measurements and the literature, the parameters with the largest variance and range would dominate our distance calculation. So we standardized our data by effectively converting all our measurements into t-scores using our sample mean and sample standard deviations for each feature. Equation 1 contains vague information about this standardization in math text therefore it is valid.</p>
+<p><span class="math display">\[ x \longrightarrow \frac{x - \bar{x}}{s_x}  \tag{1} \]</span></p>
+<p>A brief, nerdy ramble about distance surely fits in here. Many machine learning models and techniques use distance in one way or another. For <span class="math inline">\(k\)</span> nearest neighbors you only know if a neighbor is near if you know how far they are. In fact, we are really searching for the 1-nearest neighbor to our references so it is quite reasonable to treat this as such and standardize the columns. Some playing around could be done with which norm should be used (2-norm, Manhattannorm, <span class="math inline">\(\infty\)</span>-nom, etc) but no part of this analysis requires something that spicy.</p>
+<p>Now our standardized distance should be able to catch a more accurate best desk instead of being dominated by the parameter with the highest magnitude. Using the chair height, desk height, desk length, and desk width from <span class="citation" data-cites="Ansari"><a href="#ref-Ansari" role="doc-biblioref">[2]</a></span>, Colburn 366 is found to be the best seat at UD. Using <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span>, Penny 209 is found to be the best desk at UD.</p>
+</section>
+<section id="the-worst-seat" class="level2">
+<h2 class="anchored" data-anchor-id="the-worst-seat">The Worst Seat</h2>
+<p>Using the same distance metric as discussed above we may also find the worst desks with respect to both references. Compared to <span class="citation" data-cites="Ansari"><a href="#ref-Ansari" role="doc-biblioref">[2]</a></span>, Memorial 127 was the worst. Compared to <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span> Memorial 48 and Gore 316 tied for worst desk.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>In our exploration of desk ergonomics, we found a clear divide between each room style. Generally, desk areas in auditoriums and lecture halls tended to have anywhere from 600-1000 square inches less than seminar rooms. This is seemingly due to auditoriums and lecture halls having single writing surfaces per seat compared to a shared table space in seminar rooms.</p>
+<p>Overall, when compared to the reference desks, the best seats on campus are Colburn 366 and Penny 209. These desks provide the ideal balance of desk length, desk width, seat height, and desk height. In contrast to this, Memorial 127, Memorial 48, and Gore 316 are considered to be the worst seats on campus depending on the source referenced.</p>
+<p>Moving forward, future studies could enhance this analysis by considering additional factors beyond basic measurements. Some factors that could be considered are accessibility to an outlet, cushioning, or even the ability to adjust chair height. Unfortunately these factors cannot be measured as easily as physical dimensions but would be an interesting design challenge in future research.</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-mohamed" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">M. G. Mohamed Thariq, H. P. Munasinghe, and J. D. Abeysekara, <span>“Designing chairs with mounted desktop for university students: Ergonomics and comfort,”</span> <em>International Journal of Industrial Ergonomics</em>, vol. 40, no. 1, pp. 8–18, Jan. 2010, doi: <a href="https://doi.org/10.1016/j.ergon.2009.10.003">10.1016/j.ergon.2009.10.003</a>.</div>
+</div>
+<div id="ref-Ansari" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">S. A. Ansari, A. N. Nikpey, and S. V. Varmazyar, <span>“Design and development of an ergonomic chair for students in educational settings,”</span> <em>Health Scope</em>, vol. 7, no. 4, p. e60531, doi: <a href="https://doi.org/10.5812/jhealthscope.60531">10.5812/jhealthscope.60531</a>.</div>
+</div>
+<div id="ref-egypt" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline"><span>“<span>A</span>ncient <span>E</span>gyptian <span>F</span>urniture in <span>E</span>gypt — furniturestyles.net.”</span> <a href="https://www.furniturestyles.net/ancient/egyptian/" class="uri">https://www.furniturestyles.net/ancient/egyptian/</a>.</div>
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>oddly <span class="citation" data-cites="mohamed"><a href="#ref-mohamed" role="doc-biblioref">[1]</a></span> argues chairs with desks connected are favorable to desks where the chair is independent since students tend to lean over the desk while writing instead of keeping their back straight. But for some reason they only mention they made observations and are like “oh yeah they slouched real bad” without ever describing their methods or fully presenting their results…<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>the dimensions for both references were converted into inches with the appropriate conversion factors before their inclusion in <a href="#tbl-chair" class="quarto-xref">Table&nbsp;1</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This is in reference to the hit film ‘Morbius’ directed by Daniel Espinosa.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -600,6 +870,35 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+<p>About</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/kylecapybara">
+<p>Github</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:kwode@udel.edu">
+<p>Contact</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
