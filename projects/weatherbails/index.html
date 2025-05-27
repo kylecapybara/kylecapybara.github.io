@@ -239,7 +239,7 @@ window.Quarto = {
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Data sourced from the <a href="https://opendataphilly.org/datasets/">city of Philadelphia</a>. This is a data set that includes information about what bails were set and for what crime over the entire city of Philadelphia from 2014 to 2022. Data about daily weather in Philadelphia (specifically measured at the Philadelphia Airport) sourced from <a href="https://www.ncei.noaa.gov/">National Centers for Environmental Information</a>. The <a href="https://www.ncei.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf">formal documentation</a> lists out what each column in the weather dataset means, so I’ll leave the column names as they are to not stray from the documentation.</p>
-<div id="5861ca6c" class="cell" data-execution_count="1">
+<div id="3a7b4f6e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -253,7 +253,7 @@ window.Quarto = {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> pd.read_csv(<span class="st">'daily_weather_data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I’ll merge the sets in the same manner as project 1, and fill NaN values with 0 as none of the values important to this analysis will be affected by filling NaN with 0.</p>
-<div id="54421b03" class="cell" data-execution_count="2">
+<div id="2d5c5a16" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>totals <span class="op">=</span> bails[bails[<span class="st">'bail_category'</span>] <span class="op">==</span> <span class="st">'Total'</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bails <span class="op">=</span> bails[bails[<span class="st">'bail_category'</span>] <span class="op">!=</span> <span class="st">'Total'</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -292,7 +292,7 @@ window.Quarto = {
 </div>
 </div>
 <p>I’ll also quick just <code>describe</code> the weather columns to get an idea of what they’re looking like</p>
-<div id="29de2da4" class="cell" data-execution_count="3">
+<div id="11ff9ffa" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bails[[<span class="st">'AWND'</span>, <span class="st">'PGTM'</span>, <span class="st">'PRCP'</span>, <span class="st">'PSUN'</span>, <span class="st">'SNOW'</span>,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="st">'SNWD'</span>, <span class="st">'TAVG'</span>, <span class="st">'TMAX'</span>, <span class="st">'TMIN'</span>, <span class="st">'TSUN'</span>, <span class="st">'WDF2'</span>, <span class="st">'WDF5'</span>, <span class="st">'WSF2'</span>, <span class="st">'WSF5'</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'WT01'</span>, <span class="st">'WT02'</span>, <span class="st">'WT03'</span>, <span class="st">'WT04'</span>, <span class="st">'WT05'</span>, <span class="st">'WT06'</span>, <span class="st">'WT08'</span>, <span class="st">'WT09'</span>]].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -536,7 +536,7 @@ window.Quarto = {
 <p>Can data about the average wind speed, peak gust time, precipitations, daily percent of possible sunshine, snowfall, snow depth, average temperature, max temperature, min temperature, total minutes of sunshine, direction of fastest wind for 2 and 5 minute periods, fastest wind speed in 2 and 5 minutes, and weather types (classes) predict whether 2 or more ethnic intimidation bails were posted for $25-$100k?</p>
 <p>I’ll choose recall as my metric because recall is effectively ‘out of all the true cases what proportion did it identify,’ and in the context of this question it makes a lot of sense to gague the learner’s ability based on correctly identifying the true cases and ‘punish’ the learner for false negatives.</p>
 <p>Now, I’ll setup my <span class="math inline">\(\textbf{X}\)</span> and <span class="math inline">\(\textbf{y}\)</span> and split them into training and testing sets with random state of 4202024 because today is 4/20/2024.</p>
-<div id="7d29092f" class="cell" data-execution_count="4">
+<div id="c29506c5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> bails.loc[(bails[<span class="st">'bail_category'</span>] <span class="op">==</span> <span class="st">'$25k-$100k'</span>) <span class="op">&amp;</span> (bails[<span class="st">'Drug Sales'</span>] <span class="op">&gt;</span> <span class="dv">0</span>)][[<span class="st">'AWND'</span>, <span class="st">'PGTM'</span>, <span class="st">'PRCP'</span>, <span class="st">'PSUN'</span>, <span class="st">'SNOW'</span>,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="st">'SNWD'</span>, <span class="st">'TAVG'</span>, <span class="st">'TMAX'</span>, <span class="st">'TMIN'</span>, <span class="st">'TSUN'</span>, <span class="st">'WDF2'</span>, <span class="st">'WDF5'</span>, <span class="st">'WSF2'</span>, <span class="st">'WSF5'</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>       <span class="st">'WT01'</span>, <span class="st">'WT02'</span>, <span class="st">'WT03'</span>, <span class="st">'WT04'</span>, <span class="st">'WT05'</span>, <span class="st">'WT06'</span>, <span class="st">'WT08'</span>, <span class="st">'WT09'</span>]]</span>
@@ -546,7 +546,7 @@ window.Quarto = {
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>X_train,X_test,y_train,y_test <span class="op">=</span> train_test_split(X,y,test_size<span class="op">=</span><span class="fl">0.20</span>,shuffle<span class="op">=</span><span class="va">True</span>,random_state<span class="op">=</span><span class="dv">4202024</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now I’ll go through a grid search over a handful of values for max depth and minimum samples per leaf on some decision tree classifiers.</p>
-<div id="233a23fd" class="cell" data-execution_count="5">
+<div id="793024f9" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV, StratifiedKFold</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -573,7 +573,7 @@ window.Quarto = {
 </div>
 </div>
 <p>That’s depressing. Now I’ll do a similar grid search for a kNN learner with</p>
-<div id="0c38fb1b" class="cell" data-execution_count="6">
+<div id="be588805" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -604,7 +604,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Next I’ll put together a decision tree with the best parameters from the grid search.</p>
-<div id="3735ea3f" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;subslide&quot;}" data-execution_count="7">
+<div id="efee113e" class="cell" data-slideshow="{&quot;slide_type&quot;:&quot;subslide&quot;}" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>best_tree <span class="op">=</span> DecisionTreeClassifier(<span class="op">**</span>tree_best_params)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>best_tree.fit(X_train, y_train)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -627,21 +627,21 @@ WT05    0.000000
 WT02    0.011778
 SNWD    0.015576
 WT08    0.020982
-PRCP    0.025547
-WDF5    0.050572
+PRCP    0.031532
 WSF2    0.057685
-WSF5    0.083471
-TMAX    0.083636
-TAVG    0.121662
-WDF2    0.152298
-TMIN    0.173983
-AWND    0.202811
+WDF5    0.059225
+TMAX    0.083542
+WSF5    0.093361
+TAVG    0.115266
+WDF2    0.142408
+TMIN    0.168358
+AWND    0.200287
 dtype: float64</code></pre>
 </div>
 </div>
 <p>it’s a little sad the learner doesn’t care much about the sun or snow, but it looks like there might be something going on with the temperature.</p>
 <p>Now, I’ll see if I can put together a whole bunch of these admittedly trash classifiers to make one mega classifier.</p>
-<div id="9ad81d08" class="cell" data-execution_count="8">
+<div id="b392d116" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.discriminant_analysis <span class="im">import</span> StandardScaler</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> BaggingClassifier</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> make_pipeline</span>
@@ -667,7 +667,7 @@ weighted avg       0.53      0.52      0.52       309
 </div>
 </div>
 <p>Thats looking marginally better! Lets look at some validation curves. First, lets look at changing the <code>max_features</code></p>
-<div id="9962d779" class="cell" data-execution_count="9">
+<div id="403e2201" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> ValidationCurveDisplay</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ValidationCurveDisplay.from_estimator(</span>
@@ -688,7 +688,7 @@ weighted avg       0.53      0.52      0.52       309
 </div>
 <p>I only did the max_samples from 0-0.2 because realistically showing each learner 20% of the data would already make them too correlated with eachother.</p>
 <p>Now I’ll set the max features to 0.3 because that’s where it seems to steady out. Let’s look at <code>max_samples</code></p>
-<div id="4b6d4189" class="cell" data-execution_count="10">
+<div id="03b43a3f" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>bag <span class="op">=</span> BaggingClassifier(pipe, n_estimators<span class="op">=</span><span class="dv">50</span>, max_samples<span class="op">=</span><span class="fl">0.15</span>,max_features<span class="op">=</span><span class="fl">0.3</span>, oob_score<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">302</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>bag.fit(X_train, y_train)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -709,7 +709,7 @@ weighted avg       0.53      0.52      0.52       309
 </div>
 </div>
 <p>Now lets look at how the 0.1 <code>max_samples</code> learner performs more closely to see if it performs better than the best decision tree</p>
-<div id="9d0c92c9" class="cell" data-execution_count="11">
+<div id="b02eec1f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>bag <span class="op">=</span> BaggingClassifier(pipe, n_estimators<span class="op">=</span><span class="dv">50</span>, max_samples<span class="op">=</span><span class="fl">0.1</span>,max_features<span class="op">=</span><span class="fl">0.3</span>, oob_score<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">302</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>bag.fit(X_train, y_train)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -718,11 +718,11 @@ weighted avg       0.53      0.52      0.52       309
 <div class="cell-output cell-output-stdout">
 <pre><code>              precision    recall  f1-score   support
 
-       False       0.41      0.34      0.37       127
+       False       0.41      0.33      0.37       127
         True       0.59      0.66      0.62       182
 
     accuracy                           0.53       309
-   macro avg       0.50      0.50      0.50       309
+   macro avg       0.50      0.50      0.49       309
 weighted avg       0.51      0.53      0.52       309
 
               precision    recall  f1-score   support
@@ -737,7 +737,7 @@ weighted avg       0.56      0.56      0.55      1234
 </div>
 </div>
 <p>It looks like the bag is performing quite well compared to the measly best tree. Let’s look at the ROC curve for the bag</p>
-<div id="ac88b01c" class="cell" data-execution_count="12">
+<div id="660e0c6a" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
@@ -764,7 +764,7 @@ weighted avg       0.56      0.56      0.55      1234
 <h1>Regression</h1>
 <p>question: can I create a model to predict what proportion of all bails posted were from car theft using the same weather data as the classification section (average wind speed, peak gust time, precipitations, daily percent of possible sunshine, snowfall, snow depth, average temperature, max temperature, min temperature, total minutes of sunshine, direction of fastest wind for 2 and 5 minute periods, fastest wind speed in 2 and 5 minutes, and weather types (classes)).</p>
 <p>I’ll start by putting together a list of the features to feed to some models with the targets</p>
-<div id="e3c6d736" class="cell" data-execution_count="13">
+<div id="0385d407" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(totals)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>totals[<span class="st">'sum_bails'</span>] <span class="op">=</span> totals[bail_columns].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
@@ -866,7 +866,7 @@ weighted avg       0.56      0.56      0.55      1234
 </div>
 </div>
 <p>Now that all that is set up, it’s time to get this data stew brewing. I’ll use <span class="math inline">\(R^2\)</span> as my metric because I’m boring. Let’s jump into some ridge regression:</p>
-<div id="c8dc363b" class="cell" data-execution_count="14">
+<div id="6583d438" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Ridge</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -888,7 +888,7 @@ weighted avg       0.56      0.56      0.55      1234
 </div>
 </div>
 <p>That score is like… terrible. To see is this is just a bad initial alpha selection I’ll graoh the CoD as a function of <span class="math inline">\(\alpha\)</span></p>
-<div id="95755d26" class="cell" data-execution_count="15">
+<div id="102a2d32" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_alpha(alphaa):</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    rr <span class="op">=</span> Ridge(alpha<span class="op">=</span>alphaa)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    pipe <span class="op">=</span> make_pipeline(StandardScaler(), rr)</span>
@@ -918,7 +918,7 @@ best score: 0.0101</code></pre>
 </div>
 </div>
 <p>That smooth curve is really beautiful, but all of these <span class="math inline">\(R^2\)</span> scores are trash. Even though this is an absolutely terrible model, let’s look under the hood and see these feature weights</p>
-<div id="65bf2cd0" class="cell" data-execution_count="16">
+<div id="e4d13c19" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>rr <span class="op">=</span> Ridge(alpha<span class="op">=</span>best_alpha)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> make_pipeline(StandardScaler(), rr)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>pipe.fit(X_train, y_train)</span>
@@ -954,7 +954,7 @@ dtype: float64</code></pre>
 </div>
 <p>Looks like average temperature has the highest influence which might mean (admittedly it is WILD to harvest any meaning from this model) that during warmer days a higher proportion of bails posted were car jackings. This might explain why my AP stats teacher got his catalytic converter stolen early last summer.</p>
 <p>Let’s take a peek at some LASSO now</p>
-<div id="a28826e2" class="cell" data-execution_count="17">
+<div id="764ae15f" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Lasso</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>lass <span class="op">=</span> Lasso(alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>lass.fit(X_train, y_train)</span>
@@ -994,7 +994,7 @@ dropped cols:
 </div>
 </div>
 <p>I don’t think thats supposed to look like that….. I’ll plot the sum of the absolute values of the weights as a function of alpha to see if theres any alpha value that gets some non-zero weights.</p>
-<div id="14fdf5d8" class="cell" data-execution_count="18">
+<div id="f760e756" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_alpha(alphaa):</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    lass <span class="op">=</span> Lasso(alpha<span class="op">=</span>alphaa)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    lass.fit(X_train, y_train)</span>
@@ -1017,7 +1017,7 @@ dropped cols:
 </div>
 </div>
 <p>that’s also not looking too promising, but I’ll zoom in near zero to see what’s going on.</p>
-<div id="5b5bb7f7" class="cell" data-execution_count="19">
+<div id="07d0c372" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>alphas <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="fl">0.001</span>, <span class="dv">100</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> [test_alpha(alpha) <span class="cf">for</span> alpha <span class="kw">in</span> alphas]</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>plt.plot(alphas, scores)</span>
@@ -1036,7 +1036,7 @@ dropped cols:
 </div>
 <p>It looks like the LASSO’s ability to smoosh weights down to 0 squishes everything down to 0 for even slightly non-zero <span class="math inline">\(\alpha\)</span> values</p>
 <p>enough with all these <span class="math inline">\(lines\)</span> I’ve been hearing about. let’s take a trip back to the forest (look at some trees (do some non-linear regression with a decision tree regressor))</p>
-<div id="93d3755f" class="cell" data-execution_count="20">
+<div id="9849fbe6" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> { <span class="st">"max_depth"</span>:[<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">14</span>], </span>
@@ -1067,7 +1067,7 @@ Most important feature: TAVG</code></pre>
 </div>
 </div>
 <p>The forest failed me. As one last thing to try and get a half decent result, I’ll do a little data <span class="math inline">\(hengineering\)</span> and make some new columns that are functions of other ones (non-zero entries of course).</p>
-<div id="f4f0a193" class="cell" data-execution_count="21">
+<div id="0c4de2e0" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>addnl_columns <span class="op">=</span> []</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> column <span class="kw">in</span> totals.columns:</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">type</span>(totals[column][<span class="dv">0</span>]) <span class="op">==</span> <span class="bu">float</span>:</span>
