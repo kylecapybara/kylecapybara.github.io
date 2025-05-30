@@ -1,11 +1,5 @@
 [
   {
-    "listing": "/blog.html",
-    "items": [
-      "/posts/heat/index.html"
-    ]
-  },
-  {
     "listing": "/projects/proj.html",
     "items": [
       "/projects/304/index.html",
@@ -13,6 +7,14 @@
       "/projects/pfd maker/index.html",
       "/projects/harrpotter/index.html",
       "/projects/weatherbails/index.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/writing/heat/index.html",
+      "/writing/banned books/index.html",
+      "/writing/engl110 research/index.html"
     ]
   }
 ]
