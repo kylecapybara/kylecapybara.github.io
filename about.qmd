@@ -9,10 +9,12 @@ about:
     - icon: github
       text: Github
       href: https://github.com/kylecapybara
-
+    - icon: file-text
+      text: CV
+      href: https://drive.google.com/file/d/1iqhtk9V-JPMp2jUO_E4yxAWUEkbrMIHj/view?usp=sharing
 ---
 
-(insert bio here)
+I'm a 3rd year undergraduate chemical engineering student at the University of Delaware, originally from the Reading, PA area. I work with Professor Arthi Jayaraman's lab at UD and also work as R&D co-op at DuPont Water. I love math/statistics and polymers, and hope to pursue a PhD in chemical engineering with a focus on polymer physics and machine learning starting in the fall of 2027. 
 
 curated resources
 1. fantastic writeup about diverging color maps for use in scientific visualizations: https://www.kennethmoreland.com/color-maps/
