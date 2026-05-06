@@ -13,3 +13,6 @@ about:
 ---
 
 (insert bio here)
+
+curated resources
+1. fantastic writeup about diverging color maps for use in scientific visualizations: https://www.kennethmoreland.com/color-maps/
