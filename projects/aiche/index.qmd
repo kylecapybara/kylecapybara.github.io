@@ -1,0 +1,53 @@
+---
+title: "AIChE mentorship group formation"
+subtitle: "A Lloyd-style local search for interest-based groups"
+author: "Kyle Wodehouse"
+date: "2026-09-05"
+categories: [optimization, python, automation]
+---
+
+Forming mentorship groups by hand gets difficult quickly. Each person can fit with several others, but the groups still have to respect role counts, locked pairings, and the requirement that every person appears exactly once. With 32 mentors and 47 mentees in the current response set, the number of possible assignments is too large to inspect manually.
+
+I built a Python pipeline that turns the response workbook into an interest-based grouping. It cleans the responses, scores possible groups, searches across several feasible group shapes, and writes the result back to a formatted Excel workbook with tabs for parsed people, groups, group details, locked pairings, and exceptions.
+
+## The Lloyd-style part
+
+The search is close in spirit to Lloyd's algorithm, but adapted for a problem where there is no useful geometric centroid. Standard Lloyd's algorithm alternates between two steps:
+
+1. Assign each point to its nearest cluster center.
+2. Recompute the cluster centers from those assignments.
+
+This project has a similar loop:
+
+1. Start with a complete assignment that obeys the available mentor and mentee counts.
+2. Score each group using the interests shared by its members.
+3. Try swapping people between groups, keeping mentors in mentor slots and mentees in mentee slots.
+4. Keep the best improving swap, then repeat until a full pass finds no improvement.
+
+The main difference is that a group's "center" is implicit. It is the combination of interests represented by the people in that group. A swap changes that combination, so the pipeline can evaluate whether both affected groups become better. The algorithm never needs to invent a synthetic person who represents the average interest profile.
+
+## Scoring a group
+
+Each pair receives a compatibility score based on three pieces of information:
+
+- shared-tag density, which rewards focused matches;
+- the fraction of the smaller interest list that overlaps; and
+- a mismatch rate, which penalizes interests that do not overlap.
+
+Mentor-to-mentee matches receive the most weight. Mentee-to-mentee matches matter too, while mentor-to-mentor matches have the smallest weight. The score also includes a small preference for groups with more distinct shared interests and penalties for less useful group shapes.
+
+The search ranks complete assignments by their weakest group first, then by their total score. That choice matters. Maximizing only the total could produce several excellent groups and leave one group with almost nothing in common. The maximin objective makes the weakest group harder to hide.
+
+## Managing the search space
+
+The pipeline supports several group shapes, including 1 mentor + 1 mentee, 1 mentor + 2 mentees, 2 mentors + 2 mentees, and 2 mentors + 3 mentees. It first enumerates feasible mixes of those shapes that use every mentor and mentee exactly once. It then runs the Lloyd-style swap search from several seeded assignments for each of the best shape plans.
+
+That combination is useful because the local search can find a strong neighborhood without pretending that one starting arrangement is enough. It is still a heuristic. The full space is too large for brute force, so the goal is a good, balanced assignment that can be explained and rerun, not a claim that the one mathematically perfect grouping has been found.
+
+Locked pairings are treated as small components during initialization and are never broken by later swaps. This lets the organizer keep a requested mentor-mentee pairing together while the rest of the assignment remains flexible.
+
+## Result
+
+For the current response set, the pipeline forms 17 groups: 15 groups with 2 mentors and 3 mentees, plus 2 one-to-one groups. All 47 mentees are assigned, and the workbook reports no unassigned mentees.
+
+The interesting part of the project is not the final spreadsheet. It is the decision to treat group formation as constrained clustering and then use a Lloyd-like local search to make the problem manageable. The output is repeatable, inspectable, and easy to regenerate when another response arrives or a pairing needs to be locked.
