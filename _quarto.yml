@@ -15,6 +15,8 @@ website:
       - text: Projects
         href: projects/proj.qmd
       - blog.qmd
+      - text: CV
+        href: CV.pdf
   page-footer:
     center:
       - text: "About"
