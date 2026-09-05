@@ -1,5 +1,6 @@
 ---
 title: "About"
+description: "About Kyle Wodehouse, a chemical engineering student focused on polymer science, data analysis, and scientific computing."
 about:
   template: jolla
   links:
@@ -7,9 +8,25 @@ about:
       text: LinkedIn
       href: https://www.linkedin.com/in/kylewodehouse/
     - icon: github
-      text: Github
+      text: GitHub
       href: https://github.com/kylecapybara
 
 ---
 
-I'm a chemical engineering student at the University of Delaware, originally from Reading, Pennsylvania. I work with Arthi Jayaraman's lab on computational studies of block copolymer structures, and I’m an R&D co-op with DuPont Water Solutions, where I work on ion-exchange resin synthesis and applications. I’m interested in polymer science, statistics, data science, and signal processing, especially where they overlap. I plan to pursue a PhD in chemical engineering focused on polymer physics and machine learning.
+# About me
+
+I'm a chemical engineering student at the University of Delaware, originally from Reading, Pennsylvania. I work with Arthi Jayaraman's lab on computational studies of block-copolymer structures, and I'm an R&D co-op with DuPont Water Solutions, where I work on ion-exchange resin synthesis and applications.
+
+## Interests
+
+I'm interested in polymer science, statistics, data science, and signal processing, especially where they overlap. I plan to pursue a PhD in chemical engineering focused on polymer physics and machine learning.
+
+## Current work
+
+At DuPont, I work on the synthesis and application of ion-exchange resins. In the Jayaraman Lab, I use molecular simulation and analysis to study block-copolymer structures. My personal projects are usually small scientific tools, data analyses, or experiments in making technical work easier to inspect and reuse.
+
+## Background
+
+I like work that connects physical intuition with computation. That might mean writing a browser tool for lab data, building a constrained optimization pipeline, or using simulation to ask a question about a material.
+
+For a fuller record of my experience, [download my CV](CV.pdf). You can also reach me at [kwode@udel.edu](mailto:kwode@udel.edu).

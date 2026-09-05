@@ -7,9 +7,19 @@ categories:
   - data analysis
   - python
   - quarto
+image: "https://raw.githubusercontent.com/kylecapybara/2026-grfp-winners/main/figures/top-fields-institutional-pathways.png"
+image-alt: "Chart showing institutional pathways among leading NSF graduate fellowship fields"
 ---
 
-[*Read the report*](https://kylecapybara.github.io/2026-grfp-winners/) · [*View the source on GitHub*](https://github.com/kylecapybara/2026-grfp-winners)
+::: {.project-meta}
+**Type:** Data analysis<br>
+**Tools:** Python, Jupyter, Quarto<br>
+**Output:** Reproducible report with aggregate tables and figures
+:::
+
+::: {.project-links}
+[Read the report](https://kylecapybara.github.io/2026-grfp-winners/) · [View the source on GitHub](https://github.com/kylecapybara/2026-grfp-winners)
+:::
 
 This project explores the 2026 National Science Foundation Graduate Research Fellowship awards. I was especially interested in how award fields connect to institutions, career stages, and the path into Chemical Engineering graduate programs.
 

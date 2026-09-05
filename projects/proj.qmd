@@ -1,5 +1,6 @@
 ---
 title: "Projects"
+description: "Selected projects by Kyle Wodehouse in chemical engineering, scientific computing, data analysis, and technical writing."
 listing:
   - id: projects
     contents: "*/index.qmd"
@@ -10,6 +11,8 @@ listing:
     sort-ui: false
     filter-ui: false
 ---
+
+The projects below include scientific tools, computational analyses, and coursework. Open a project to see the question behind it, the approach I used, and the resulting code or report.
 
 ::: {#projects}
 :::

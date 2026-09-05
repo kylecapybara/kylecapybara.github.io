@@ -1,13 +1,14 @@
 ---
 title: "Hypertension for Black Americans in Linda Villarosa’s *Everything I Thought was Wrong*"
 author: "Kyle Wodehouse"
-date: "2024"
+date: "2024-01-01"
+date-format: "YYYY"
 bibliography: "hypetension bibliography.bib"
 csl: mla.csl
 image: "img.jpg"
 ---
 
->This was a reserach essay project for my ENGL110 course "Family, Race, and Kinship". 
+> This was a research essay project for my ENGL110 course "Family, Race, and Kinship".
 
 In her essay “Everything I Thought Was Wrong,” Linda Villarosa walks the reader through her experiences with systemic racism in the American healthcare system and her progression of thinking about Black health. “Everything I Thought Was Wrong” is one essay from her book *Under the Skin*, the culmination of her decades-long career as a health journalist. She recounts her past subscription to a theory about why Black Americans experience higher rates of hypertension, commonly known as high blood pressure. Villarosa explains the theory as such: when crossing the Atlantic in the slave trade, the slaves who survived the ride had a genetic advantage of holding sodium in their system longer, and handed this gene down generation after generation [@villarosa_under_2022, pp. 13]. However, this theory lacks scientific backing. Villarosa comments, “no data proves that salt-depleting illnesses like dehydration and diarrhea were responsible for a significant number of deaths on slave ships” [@villarosa_under_2022, pp. 14]. She notes research trying to explain the African American health disparity through genomic methods was flawed from conception–one of the theory’s main axioms remains unevidenced. She writes, “Less discussed, often ignored, but also proven is the link between hypertension and stressful environments and situations, including living with bias and discrimination” [@villarosa_under_2022, pp. 14]. Villarosa stresses the dissonance between what is allowed in clinical discussions and a factor undoubtedly playing into the issue: systemic racism. The causes of excess Black deaths from hypertension in America are multifaceted, a complex interplay of genetic, socioeconomic, and historical factors no single discipline can fully account for. By not considering other fields’ extramedical explanations for the racialized hypertension disparity in America, like those Linda Villarsoa shares in “Everything I Thought was Wrong,” American hypertension researchers fail to accurately provide a pathway to remedy and perpetuate racist structures through their scholarship.
 

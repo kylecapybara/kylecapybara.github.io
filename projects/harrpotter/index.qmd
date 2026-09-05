@@ -4,18 +4,28 @@ categories:
   - clustering
   - math219
   - python
-title: Did JK Rowling's Writing Change When She Switched Her Genre?
+title: Did J.K. Rowling's Writing Change When She Switched Her Genre?
 subtitle: Using NLTK to create features and common clustering algorithms on Harry Potter text
 author: Kyle Wodehouse
-date: 5/19/2024
+date: "2024-05-19"
 jupyter: python3
 ---
+
+::: {.project-meta}
+**Type:** Natural-language analysis<br>
+**Tools:** Python, NLTK, scikit-learn<br>
+**Question:** Whether Rowling's sentence-level writing changed across two genres
+:::
+
+::: {.project-links}
+[View the source dataset](https://github.com/gastonstat/harry-potter-data)
+:::
 
 # Introduction
 
 This project sets out to see if Rowling's writing on the sentence scale changed when she switched her genre from middle grade (books 1-3) to young adult (books 4-7). This will be done through typical clustering algorithms.
 
-The data is a collection of all the lines from all the harry potter books sourced from [gastonstat on github](https://github.com/gastonstat/harry-potter-data). Each row in the original data is a set of words, most likely lines on the page, with columns for the text (string), book (string), and chapter (string). Since all the columns are strings I'll create other columns with statistics about the sentences for clustering analysis.
+The data is a collection of lines from the Harry Potter books, sourced from [gastonstat on GitHub](https://github.com/gastonstat/harry-potter-data). Each row contains the text, book, and chapter. Since all the columns are strings, I'll create other columns with statistics about the sentences for clustering analysis.
 
 
 ```{python}
@@ -263,4 +273,3 @@ This project originally set out to see if Rowling's writing on the sentence scal
 I originally thought 'hey maybe its just annoying short sentences kicking around,' but looking at the top 25% longest sentences revealed all agglomerative clustering linkages couldn't find the secret (resisting the urge to write jokes about magic) and poor old lloyd (k-means) couldn't either.
 
 The only reasonable takeaway is that on the sentence scale Rowling's writing did not change in a NLTK implementable, measurable way. Further analysis would need to be done to determine if on a larger scale (maybe paragraph or page) her writing did change to better fit the young adult tag.
-

@@ -6,6 +6,8 @@ project:
 
 website:
   title: "Kyle Wodehouse"
+  description: "Portfolio of Kyle Wodehouse, a chemical engineering student working across polymer science, data analysis, and scientific software."
+  author: "Kyle Wodehouse"
   google-analytics: "G-E8T39RJ05T"
   navbar:
     left:
@@ -21,7 +23,7 @@ website:
     center:
       - text: "About"
         href: about.qmd
-      - text: "Github"
+      - text: "GitHub"
         href: https://github.com/kylecapybara
       - text: "Contact"
         href: mailto:kwode@udel.edu

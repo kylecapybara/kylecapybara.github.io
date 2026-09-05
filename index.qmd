@@ -7,16 +7,55 @@ about:
           text: LinkedIn
           url: https://www.linkedin.com/in/kylewodehouse/
         - icon: github
-          text: Github
+          text: GitHub
           url: https://github.com/kylecapybara
         - icon: instagram
           text: Instagram
           url: https://www.instagram.com/kylethedonut/
 image: R0001528.png
+image-alt: "Portrait of Kyle Wodehouse"
+description: "Portfolio of Kyle Wodehouse, a chemical engineering student building scientific tools and studying polymer systems."
 comments: false
 ---
 
-# Bio 
+# What I work on
 
-I'm a third year chemical engineering student at the University of Delaware interested in polymer systems, data science, and signal processing. I'm also a research and development co-op at DuPont Water Solutions where I work on ion exchange resin synthesis and applications. Other than that I do a little work with the Jayaraman Lab at UD calculating thermal properties of block copolymer structures with LAMMPS. 
+I'm a chemical engineering student at the University of Delaware who builds tools and studies materials at the intersection of polymer science, data analysis, and scientific computing. I'm also an R&D co-op at DuPont Water Solutions, where I work on ion-exchange resin synthesis and applications, and a member of the Jayaraman Lab, where I calculate thermal properties of block-copolymer structures with LAMMPS.
 
+::: {.home-intro}
+My work usually starts with a messy experimental or research question and ends with a clearer model, a useful tool, or a result someone else can inspect and reuse.
+:::
+
+# Selected work
+
+::: {.portfolio-grid}
+
+::: {.portfolio-card}
+### [PFD TikZ Studio](projects/pfd%20maker%20v2/index.html)
+
+A browser-based editor for drawing chemical engineering process-flow diagrams and exporting editable TikZ code.
+
+[Open the app](https://kylecapybara.github.io/pfd-tikz-studio/) · [View source](https://github.com/kylecapybara/pfd-tikz-studio)
+:::
+
+::: {.portfolio-card}
+### [Equilibrium Pressure Extractor](projects/pressure%20tool/index.html)
+
+A client-side tool for turning vapor-liquid equilibrium pressure signals into marked regions, statistics, and exportable results.
+
+[Open the tool](https://kylecapybara.github.io/pressure-tool/equilibrium_pressures.html) · [View source](https://github.com/kylecapybara/pressure-tool)
+:::
+
+::: {.portfolio-card}
+### [2026 NSF GRFP winners](projects/2026%20grfp%20winners/index.html)
+
+A Python and Quarto analysis of award fields, institutions, and pathways into graduate study.
+
+[Read the report](https://kylecapybara.github.io/2026-grfp-winners/) · [View source](https://github.com/kylecapybara/2026-grfp-winners)
+:::
+
+:::
+
+# Get in touch
+
+I'm interested in polymer physics, scientific software, and graduate research. You can reach me at [kwode@udel.edu](mailto:kwode@udel.edu), or find me on [LinkedIn](https://www.linkedin.com/in/kylewodehouse/).

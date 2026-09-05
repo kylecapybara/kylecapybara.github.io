@@ -6,6 +6,12 @@ date: "2026-09-05"
 categories: [optimization, python, automation]
 ---
 
+::: {.project-meta}
+**Type:** Constrained optimization<br>
+**Tools:** Python, local search, Excel output<br>
+**Output:** A repeatable workbook for forming balanced mentorship groups
+:::
+
 Forming mentorship groups by hand gets difficult quickly. Each person can fit with several others, but the groups still have to respect role counts, locked pairings, and the requirement that every person appears exactly once. With 32 mentors and 47 mentees in the current response set, the number of possible assignments is too large to inspect manually.
 
 I built a Python pipeline that turns the response workbook into an interest-based grouping. It cleans the responses, scores possible groups, searches across several feasible group shapes, and writes the result back to a formatted Excel workbook with tabs for parsed people, groups, group details, locked pairings, and exceptions.

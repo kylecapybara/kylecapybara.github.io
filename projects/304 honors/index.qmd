@@ -16,6 +16,12 @@ bibliography: zotero.bib
 csl: ieee.csl
 ---
 
+::: {.project-meta}
+**Type:** Collaborative coursework<br>
+**Tools:** Python, statistics, data visualization<br>
+**Role:** Literature review, visualization, discussion, and document formatting
+:::
+
 > This was a project for the honors section of UD's CHE304 "Random Variability in Chemical Processes." My main contributions to the report were the literature review, writing the introduction and discussion, and all visualization and formatting. The full report on this study is available below.
 
 

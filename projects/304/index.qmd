@@ -5,11 +5,18 @@ categories:
   - python
 date: '2025-05-21'
 title: "CHEG304 Python"
-subtitle: "Providing a resource for doing CHEG304 coursework with python instead of matlab"
+subtitle: "A resource for doing CHEG304 coursework with Python instead of MATLAB"
 image: python.png
 ---
 
+::: {.project-meta}
+**Type:** Coursework resource<br>
+**Tools:** Python, NumPy, pandas, Matplotlib<br>
+**Output:** A practical guide to doing CHEG304 coursework in Python
+:::
 
-Every UD chemical engineering student takes CHEG304 "Random Variability in Chemical Processes". The professor is lovely, but they were taught matlab and therefore share helpful matlab functions. Over a week I put together this pamphlet citing the functions our professor shared and then pointing to python functions that are functionally similar if not the exact same. I also included tons of examples of how to use some of the functions along with plenty of helpful warnings and notes.
+::: {.project-links}
+[Open the guide](https://kylecapybara.github.io/pycheg304/)
+:::
 
-The book is free to access [here](https://kylecapybara.github.io/pycheg304/)
+Every UD chemical engineering student takes CHEG304, "Random Variability in Chemical Processes." The course materials use MATLAB, so I put together this guide to the equivalent Python functions, with examples, warnings, and notes.

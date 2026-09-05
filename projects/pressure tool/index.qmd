@@ -7,9 +7,19 @@ categories:
   - chemical engineering
   - web app
   - javascript
+image: "https://raw.githubusercontent.com/kylecapybara/pressure-tool/refs/heads/main/screenshot.png"
+image-alt: "Screenshot of the Equilibrium Pressure Extractor interface"
 ---
 
-[*Open the tool*](https://kylecapybara.github.io/pressure-tool/equilibrium_pressures.html) · [*View the source on GitHub*](https://github.com/kylecapybara/pressure-tool)
+::: {.project-meta}
+**Type:** Scientific web tool<br>
+**Tools:** JavaScript, Chart.js, Papa Parse<br>
+**Output:** Client-side CSV analysis with region statistics and export
+:::
+
+::: {.project-links}
+[Open the tool](https://kylecapybara.github.io/pressure-tool/equilibrium_pressures.html) · [View the source on GitHub](https://github.com/kylecapybara/pressure-tool)
+:::
 
 Vapor-liquid equilibrium experiments produce pressure signals that still need to be turned into a useful set of equilibrium values. I built this tool for CHEG345 at the University of Delaware to make that analysis faster without hiding the decisions behind a script.
 

@@ -1,7 +1,8 @@
 ---
 title: "Press and Paratext"
 author: "Kyle Wodehouse"
-date: "2024"
+date: "2024-01-01"
+date-format: "YYYY"
 bibliography: paratext.bib
 csl: chicago-nb.csl
 ---

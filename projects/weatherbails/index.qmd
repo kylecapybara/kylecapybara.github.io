@@ -6,11 +6,17 @@ categories:
   - math219
   - python
 title: How does Philadelphia weather affect bails?
-subtitle: Using data from the city of Philadelphia about bails and weather to invesigate their relationship with common classification and regression algorithms.
+subtitle: Using data from the city of Philadelphia about bails and weather to investigate their relationship with common classification and regression algorithms.
 author: Kyle Wodehouse
-date: 3/21/2024
+date: "2024-03-21"
 jupyter: python3
 ---
+
+::: {.project-meta}
+**Type:** Coursework analysis<br>
+**Tools:** Python, pandas, scikit-learn, seaborn<br>
+**Output:** Classification and regression experiments using Philadelphia bail and weather data
+:::
 
 # Introduction
 
@@ -442,4 +448,3 @@ The relative performance varied dramatically. On one hand, the bag classifier en
 A handful of the learners considered in this project found `TAVG` to be a fairly important feature, while I'm pretty sure no learner put a weight or importance on `TSUN` or `PSUN`. If any of these learners were higher performing I would dare to attribute this to the court rooms being indoors and therefore not in direct sunlight.
 
 There's a lot of room for improvement in the results, so I have a lot of ideas for ways to get better features. Maybe instead of the weather outside there could be information about the temperature and humidity inside court rooms where the bails were posted. It could also help to have more accurate bail amounts instead of buckets. Another idea would be some sort of severity measure added to the bail like a victim count for a homicide bail. This could be not only more interesting, and morbid, but might help a learner out. And of course this wouldn't be a valid discussion without the boiler-plate 'more rows,' which the city of philadelphia is already doing as a type this sentence.
-

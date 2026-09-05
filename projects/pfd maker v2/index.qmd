@@ -7,9 +7,19 @@ categories:
   - chemical engineering
   - web app
   - javascript
+image: "../pfd maker/1-1.png"
+image-alt: "Example process flow diagram produced with TikZ"
 ---
 
-[*Open the app*](https://kylecapybara.github.io/pfd-tikz-studio/) · [*View the source on GitHub*](https://github.com/kylecapybara/pfd-tikz-studio)
+::: {.project-meta}
+**Type:** Scientific web tool<br>
+**Tools:** JavaScript, SVG, TikZ, LaTeX<br>
+**Output:** A browser editor that exports editable process-flow diagrams
+:::
+
+::: {.project-links}
+[Open the app](https://kylecapybara.github.io/pfd-tikz-studio/) · [View the source on GitHub](https://github.com/kylecapybara/pfd-tikz-studio)
+:::
 
 Process flow diagrams are easy to sketch and surprisingly annoying to typeset. The first version of this project used Tkinter. PFD TikZ Studio is the web-app version: a static, client-side editor that runs in a browser and exports diagrams as TikZ code.
 
