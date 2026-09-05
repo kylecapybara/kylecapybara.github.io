@@ -2,8 +2,11 @@ project:
   type: website
   output-dir: docs
 
+
+
 website:
   title: "Kyle Wodehouse"
+  google-analytics: "G-E8T39RJ05T"
   navbar:
     left:
       - href: index.qmd
@@ -12,6 +15,14 @@ website:
       - text: Projects
         href: projects/proj.qmd
       - blog.qmd
+  page-footer:
+    center:
+      - text: "About"
+        href: about.qmd
+      - text: "Github"
+        href: https://github.com/kylecapybara
+      - text: "Contact"
+        href: mailto:kwode@udel.edu
 
 
 format:
@@ -19,6 +30,5 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
-
-
+execute: 
+  freeze: true

@@ -22,5 +22,35 @@
   },
   "blog.qmd": {
     "blog.html": "662e62bb"
+  },
+  "projects/harrpotter/project_3.ipynb": {
+    "project_3.html": "e097a8f2"
+  },
+  "projects/harrpotter/index.qmd": {
+    "index.html": "f9b72a3a"
+  },
+  "projects/weatherbails/project_2.qmd": {
+    "project_2.html": "ad3e69e1"
+  },
+  "projects/weatherbails/index.qmd": {
+    "index.html": "8b79f381"
+  },
+  "posts/banned books/index.qmd": {
+    "index.html": "20a5962f"
+  },
+  "posts/engl110 research/index.qmd": {
+    "index.html": "8f38bd6f"
+  },
+  "writing/heat/index.qmd": {
+    "index.html": "cc5f4c04",
+    "index.tex": "6523112c"
+  },
+  "writing/banned books/index.qmd": {
+    "index.html": "870d0b36",
+    "index.tex": "ab35ca8a"
+  },
+  "writing/engl110 research/index.qmd": {
+    "index.html": "4a69b37e",
+    "index.tex": "b3c2957a"
   }
 }

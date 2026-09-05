@@ -1,0 +1,266 @@
+---
+toc: true
+categories:
+  - clustering
+  - math219
+  - python
+title: Did JK Rowling's Writing Change When She Switched Her Genre?
+subtitle: Using NLTK to create features and common clustering algorithms on Harry Potter text
+author: Kyle Wodehouse
+date: 5/19/2024
+jupyter: python3
+---
+
+# Introduction
+
+This project sets out to see if Rowling's writing on the sentence scale changed when she switched her genre from middle grade (books 1-3) to young adult (books 4-7). This will be done through typical clustering algorithms.
+
+The data is a collection of all the lines from all the harry potter books sourced from [gastonstat on github](https://github.com/gastonstat/harry-potter-data). Each row in the original data is a set of words, most likely lines on the page, with columns for the text (string), book (string), and chapter (string). Since all the columns are strings I'll create other columns with statistics about the sentences for clustering analysis.
+
+
+```{python}
+#| warning: false
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import nltk
+
+harry = pd.read_csv('harry_potter_books.csv')
+harry.head()
+```
+
+Each row contains some `text` (probably just the literal lines from whatever ebook this guy scraped the text from) and also notes the `book` it is from and what `chapter` the text is from as well. Let's make a new column that is the number of words in each row using a very, very tasty library called NLTK.
+
+```{python}
+#| warning: false
+harry['word count'] = harry['text'].apply(lambda x: len(nltk.word_tokenize(x)))
+harry['word count'].head()
+```
+
+To get the clustering party started I'll first merge every 4 rows together so that there is more info per row (and since there's so many rows this will not hurt the sample size too much). 
+
+This is not trivial! I will group them into individual chapters and then re-split them. I'll also only take chapters 3 and 4 to save on training time.
+
+```{python}
+#| warning: false
+combined_rows = harry.groupby(['book', 'chapter']).agg({'text': ' '.join, 'word count': 'sum'}).reset_index()
+combined_rows = combined_rows.loc[(combined_rows['book'] == 'Book 3: Prisoner of Azkaban') | (combined_rows['book'] == 'Book 4: Goblet of Fire')]
+combined_rows.head()
+```
+
+Seeing how many words are in each row its clear we have a row per chapter. Now to let NLTK do the sentence splitting magic and EXPLODE the rows into their own rows.
+
+```{python}
+#| warning: false
+combined_rows['text'] = combined_rows['text'].apply(lambda x: nltk.sent_tokenize(x))
+sentences = combined_rows.explode('text').drop('word count', axis=1)
+sentences.head()
+```
+
+```{python}
+#| warning: false
+sentences.describe()
+```
+
+It's a little annoying that NLTK thinks a solid number of sentences are a single period so I'll remove all those rows just in case they ruin my clustering later. (there are some other annoyingly short sentences I removed too)
+
+```{python}
+#| warning: false
+sentences = sentences.loc[(sentences['text'] != '.') & (sentences['text'] != ".'") & (sentences['text'] != "...")]
+sentences.describe()
+```
+
+Now I'll use some useful tools from NLTK to make columns to use when clustering
+
+```{python}
+#| warning: false
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+
+stop_words = set(stopwords.words('english'))
+
+sentences['word_count'] = sentences['text'].apply(lambda x: len(word_tokenize(x)))
+sentences['avg_word_length'] = sentences['text'].apply(lambda x: sum(len(word) for word in word_tokenize(x)) / len(word_tokenize(x)))
+sentences['stopwords_count'] = sentences['text'].apply(lambda x: len([word for word in word_tokenize(x) if word.lower() in stop_words]))
+sentences['sentence_length'] = sentences['text'].apply(lambda x: len(x.split()))
+
+import string
+sentences['punctuation_count'] = sentences['text'].apply(lambda x: len([char for char in x if char in string.punctuation]))
+```
+
+```{python}
+#| warning: false
+sentences.head(1)
+```
+
+Adding a few more columns that also make use of NLTKs cooler features like polarity. 
+
+```{python}
+#| warning: false
+from nltk.sentiment import SentimentIntensityAnalyzer
+
+# sentiment analyzer
+sid = SentimentIntensityAnalyzer()
+
+sentences['polarity'] = sentences['text'].apply(lambda x: sid.polarity_scores(x)['compound'] )
+sentences['subjectivity_score'] = sentences['text'].apply(lambda x: sid.polarity_scores(x)['compound'])
+for tag in ['JJ', 'RB', 'NN', 'VB']:
+    sentences[tag + '_count'] = sentences['text'].apply(lambda x: sum(1 for _, pos in nltk.pos_tag(nltk.word_tokenize(x)) if pos == tag))
+```
+
+The tags 'JJ', 'RB', 'NN', and 'VB' correspond to parts of speech adjective, adverb, noun, and verb.
+
+```{python}
+#| warning: false
+sentences.reset_index(drop=True, inplace=True)
+sentences.head(5)
+```
+
+# Analysis / Results
+
+I'll use standarized colums and consider $n \in (2,3,4,5,6,7)$. I'll also use standard state 51524 because thats todays date if you were wondering.
+
+```{python}
+#| warning: false
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.metrics import adjusted_rand_score
+from sklearn.metrics import silhouette_samples
+
+X = sentences.drop(['book', 'chapter', 'text' ], axis=1)
+```
+
+```{python}
+#| warning: false
+ks = [2,3,4,5,6,7]
+
+for k in ks:
+    km = make_pipeline(StandardScaler(), KMeans(n_clusters=k, n_init=5, random_state=51524))
+    km.fit(X)
+    y = km[1].labels_
+    sil = silhouette_samples(X, y)
+    ARI = adjusted_rand_score(sentences['book'], y)
+    print(f'k={k}, silhouette={sil.mean()}, ARI={ARI:.4f}')
+```
+
+2 is looking like the most delicious number of clusters and also matches up with my question so I'll continue on with $n=2$ and visualize its box plot. 
+
+```{python}
+#| warning: false
+km = make_pipeline(StandardScaler(), KMeans(n_clusters=2, n_init=10, random_state=51524))
+km.fit(X)
+
+y = km[1].labels_
+sentences["cluster"] = y
+sentences["sil"] = silhouette_samples(X, y)
+sns.catplot(data=sentences, x="cluster", y="sil", kind="box")
+```
+
+Looks like cluster 0 is decent except for the crazy amount of outliers and cluster 1 is pretty bad. 
+
+Going forward with the agglomerative clustering, I'll only look at $n = {2,3,4}$ since for k-means the other n values were trash and this will save lots of computing time. I'll also standardize X myself so I don't need to mess around with pipelines and not even bother with single-linkage because for all the values of $n$ I tested it made $n-1$ singletons.
+
+```{python}
+#| warning: false
+from sklearn.cluster import AgglomerativeClustering
+
+for col in X.columns:
+    X[col] = StandardScaler().fit_transform(X[[col]])
+```
+
+```{python}
+#| warning: false
+linkages = ["ward", "complete", "average"]
+
+results = pd.DataFrame()
+
+for linkage in linkages:
+    data = X.copy()
+    agg = AgglomerativeClustering(n_clusters=2, linkage=linkage)
+    agg.fit(X)
+    data["cluster"] = agg.labels_
+    data["sil"] = silhouette_samples(X, y)
+    data["linkage"] = linkage
+    results = pd.concat( (results, data) )
+sns.catplot(data=results, x="cluster", y="sil", col='linkage', kind="box")
+
+for linkage in linkages:
+    data = X.copy()
+    agg = AgglomerativeClustering(n_clusters=3, linkage=linkage)
+    agg.fit(X)
+    data["cluster"] = agg.labels_
+    data["sil"] = silhouette_samples(X, y)
+    data["linkage"] = linkage
+    results = pd.concat( (results, data) )
+sns.catplot(data=results, x="cluster", y="sil", col='linkage', kind="box")
+
+for linkage in linkages:
+    data = X.copy()
+    agg = AgglomerativeClustering(n_clusters=4, linkage=linkage)
+    agg.fit(X)
+    data["cluster"] = agg.labels_
+    data["sil"] = silhouette_samples(X, y)
+    data["linkage"] = linkage
+    results = pd.concat( (results, data) )
+sns.catplot(data=results, x="cluster", y="sil", col='linkage', kind="box")
+```
+
+Taking a peek at the ARI
+
+```{python}
+#| warning: false
+n = [2,3,4]
+
+for n_clusters in n:
+    for linkage in linkages:
+        agg = AgglomerativeClustering(n_clusters=n_clusters, linkage=linkage)
+        y = agg.fit_predict(X)
+        ARI = adjusted_rand_score(sentences['book'], y)
+        print(f"ARI for {linkage} linkage with {n_clusters} clusters is {ARI:.4f}")
+```
+
+These ARI scores are pretty bad from a classification standpoint, but it may indicate that Rowling's writing didn't truly change from book 3 to 4. 
+
+As a final MATH219 effort I'll choose only the top 25% of sentences and do similar speed-run analysis on them since maybe the shorter sentences lack writing style. 
+
+```{python}
+#| warning: false
+X = sentences.drop(['book', 'chapter', 'text'], axis=1).loc[sentences['word_count'] > 26]
+X = StandardScaler().fit_transform(X)
+```
+
+Agglomerative:
+
+```{python}
+#| warning: false
+n = [2,3,4]
+linkages = ["average", "single", "ward"]
+
+for n_clusters in n:
+    for linkage in linkages:
+        agg = AgglomerativeClustering(n_clusters=n_clusters, linkage=linkage)
+        y = agg.fit_predict(X)
+        ARI = adjusted_rand_score(sentences['book'].loc[sentences['word_count'] > 26], y)
+        print(f"ARI for {linkage} linkage with {n_clusters} clusters is {ARI:.4f}")
+```
+
+K-means:
+
+```{python}
+#| warning: false
+for n in [2]:
+    km = make_pipeline(StandardScaler(), KMeans(n_clusters=2, n_init=10, random_state=51524))
+    km.fit(X)
+    ARI = adjusted_rand_score(sentences['book'].loc[sentences['word_count'] > 26], km[1].labels_)
+    print(f"ARI for KMeans with {n} clusters is {ARI:.4f}")
+```
+
+# Discussion
+
+This project originally set out to see if Rowling's writing on the sentence scale truly changed when she switched her genre from middle grade (books 1-3) to young adult (books 4-7, obviously). Lloyd's algorithm and a handful of linkage types for agglomerative clustering couldn't seem to get clusters anywhere near accurate to what book the rows (sentences) came from. 
+
+I originally thought 'hey maybe its just annoying short sentences kicking around,' but looking at the top 25% longest sentences revealed all agglomerative clustering linkages couldn't find the secret (resisting the urge to write jokes about magic) and poor old lloyd (k-means) couldn't either.
+
+The only reasonable takeaway is that on the sentence scale Rowling's writing did not change in a NLTK implementable, measurable way. Further analysis would need to be done to determine if on a larger scale (maybe paragraph or page) her writing did change to better fit the young adult tag.
+

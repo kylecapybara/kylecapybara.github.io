@@ -3,9 +3,10 @@ toc: true
 categories: 
   - statistics
   - python
-date: '2025-05-20'
+date: '2025-05-21'
 title: "CHEG304 Python"
 subtitle: "Providing a resource for doing CHEG304 coursework with python instead of matlab"
+image: python.png
 ---
 
 

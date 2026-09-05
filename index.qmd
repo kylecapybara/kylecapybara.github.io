@@ -15,3 +15,8 @@ about:
 image: R0001528.png
 comments: false
 ---
+
+# Bio 
+
+I'm a third year chemical engineering student at the University of Delaware interested in polymer systems, data science, and signal processing. I'm also a research and development co-op at DuPont Water Solutions where I work on ion exchange resin synthesis and applications. Other than that I do a little work with the Jayaraman Lab at UD calculating thermal properties of block copolymer structures with LAMMPS. 
+
