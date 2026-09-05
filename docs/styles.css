@@ -1,1 +1,126 @@
-/* css styles */
+/* Shared site styling */
+
+:root {
+  --site-ink: #17212b;
+  --site-muted: #5c6873;
+  --site-accent: #0f766e;
+  --site-accent-dark: #115e59;
+  --site-border: #d8e1e5;
+  --site-panel: #f4f8f7;
+}
+
+body {
+  color: var(--site-ink);
+  font-size: 1.05rem;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.navbar-title {
+  letter-spacing: 0.01em;
+}
+
+.quarto-about-trestles .about-contents,
+.quarto-about-jolla .about-contents {
+  max-width: 48rem;
+}
+
+.home-intro {
+  margin: 1.5rem 0 2.5rem;
+  padding: 1.15rem 1.35rem;
+  border-left: 4px solid var(--site-accent);
+  background: var(--site-panel);
+  color: var(--site-muted);
+}
+
+.project-meta {
+  margin: 1.25rem 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--site-border);
+  border-radius: 0.45rem;
+  background: var(--site-panel);
+  color: var(--site-muted);
+  line-height: 1.7;
+}
+
+.project-links {
+  margin: 1.25rem 0 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.project-links a {
+  color: var(--site-accent-dark);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2.75rem;
+}
+
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 14rem;
+  padding: 1.25rem;
+  border: 1px solid var(--site-border);
+  border-top: 4px solid var(--site-accent);
+  border-radius: 0.5rem;
+  background: #fff;
+  box-shadow: 0 0.35rem 1rem rgba(23, 33, 43, 0.06);
+}
+
+.portfolio-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.portfolio-card p:last-child {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.portfolio-card a,
+.home-intro a {
+  color: var(--site-accent-dark);
+}
+
+.quarto-listing .quarto-post {
+  border-color: var(--site-border);
+}
+
+.quarto-listing .listing-title a {
+  color: var(--site-ink);
+}
+
+.quarto-listing .listing-categories .listing-category {
+  color: var(--site-accent-dark);
+}
+
+.quarto-dark .portfolio-card {
+  background: #1d2a33;
+  border-color: #3a4a54;
+}
+
+.quarto-dark .home-intro,
+.quarto-dark .project-meta {
+  background: #1d2a33;
+  color: #c8d3d8;
+}
+
+.quarto-dark .portfolio-card a,
+.quarto-dark .home-intro a,
+.quarto-dark .project-links a {
+  color: #72d1c8;
+}
+
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}

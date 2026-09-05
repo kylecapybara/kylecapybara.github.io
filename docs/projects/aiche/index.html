@@ -182,6 +182,9 @@ gtag('config', 'G-E8T39RJ05T', { 'anonymize_ip': true});
 </header>
 
 
+<div class="project-meta">
+<p><strong>Type:</strong> Constrained optimization<br> <strong>Tools:</strong> Python, local search, Excel output<br> <strong>Output:</strong> A repeatable workbook for forming balanced mentorship groups</p>
+</div>
 <p>Forming mentorship groups by hand gets difficult quickly. Each person can fit with several others, but the groups still have to respect role counts, locked pairings, and the requirement that every person appears exactly once. With 32 mentors and 47 mentees in the current response set, the number of possible assignments is too large to inspect manually.</p>
 <p>I built a Python pipeline that turns the response workbook into an interest-based grouping. It cleans the responses, scores possible groups, searches across several feasible group shapes, and writes the result back to a formatted Excel workbook with tabs for parsed people, groups, group details, locked pairings, and exceptions.</p>
 <section id="the-lloyd-style-part" class="level2">
@@ -661,7 +664,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://github.com/kylecapybara">
-<p>Github</p>
+<p>GitHub</p>
 </a>
   </li>  
     <li class="nav-item">

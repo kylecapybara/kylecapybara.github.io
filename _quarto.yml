@@ -7,7 +7,6 @@ project:
 website:
   title: "Kyle Wodehouse"
   description: "Portfolio of Kyle Wodehouse, a chemical engineering student working across polymer science, data analysis, and scientific software."
-  author: "Kyle Wodehouse"
   google-analytics: "G-E8T39RJ05T"
   navbar:
     left:

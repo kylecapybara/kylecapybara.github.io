@@ -202,7 +202,12 @@ window.Quarto = {
 </header>
 
 
-<p><a href="https://kylecapybara.github.io/pressure-tool/equilibrium_pressures.html"><em>Open the tool</em></a> · <a href="https://github.com/kylecapybara/pressure-tool"><em>View the source on GitHub</em></a></p>
+<div class="project-meta">
+<p><strong>Type:</strong> Scientific web tool<br> <strong>Tools:</strong> JavaScript, Chart.js, Papa Parse<br> <strong>Output:</strong> Client-side CSV analysis with region statistics and export</p>
+</div>
+<div class="project-links">
+<p><a href="https://kylecapybara.github.io/pressure-tool/equilibrium_pressures.html">Open the tool</a> · <a href="https://github.com/kylecapybara/pressure-tool">View the source on GitHub</a></p>
+</div>
 <p>Vapor-liquid equilibrium experiments produce pressure signals that still need to be turned into a useful set of equilibrium values. I built this tool for CHEG345 at the University of Delaware to make that analysis faster without hiding the decisions behind a script.</p>
 <p>The tool accepts CSV files with arbitrary columns, plots the selected variables in the browser, and lets the user mark analysis regions directly on the chart. Each region produces a mean, standard deviation, and point count. Regions can be moved or resized after they are created, so the analysis can be corrected without starting over.</p>
 <p>The tool also includes a linear drift correction for signals that slowly move during an experiment:</p>
@@ -648,7 +653,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="https://github.com/kylecapybara">
-<p>Github</p>
+<p>GitHub</p>
 </a>
   </li>  
     <li class="nav-item">
