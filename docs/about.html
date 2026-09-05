@@ -124,7 +124,8 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
-<p>(insert bio here)</p>
+<p>I’m a senior undergraduate chemical engineering student at the University of Delaware, originally from the Reading, PA area. I work with Professor Arthi Jayaraman’s lab at UD and also work as R&amp;D co-op at DuPont Water. I love math/statistics and polymers, and hope to pursue a PhD in chemical engineering with a focus on polymer physics and machine learning starting in the fall of 2027.</p>
+<p>curated resources 1. fantastic writeup about diverging color maps for use in scientific visualizations: https://www.kennethmoreland.com/color-maps/</p>
 
 
 </main> 
@@ -137,6 +138,10 @@ ul.task-list li input[type="checkbox"] {
   <a href="https://github.com/kylecapybara" class="about-link" rel="" target="">
     <i class="bi bi-github"></i>
      <span class="about-link-text">Github</span>
+  </a>
+  <a href="https://drive.google.com/file/d/1iqhtk9V-JPMp2jUO_E4yxAWUEkbrMIHj/view?usp=sharing" class="about-link" rel="" target="">
+    <i class="bi bi-file-text"></i>
+     <span class="about-link-text">CV</span>
   </a>
 </div>
 </div>
@@ -226,7 +231,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/kylecapybara\.github\.io\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
