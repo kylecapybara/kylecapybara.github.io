@@ -1,0 +1,20 @@
+---
+title: "PFD TikZ Studio"
+subtitle: "A browser-based editor for chemical engineering process flow diagrams"
+author: Kyle Wodehouse
+date: '2026-06-24'
+categories:
+  - chemical engineering
+  - web app
+  - javascript
+---
+
+[*Open the app*](https://kylecapybara.github.io/pfd-tikz-studio/) · [*View the source on GitHub*](https://github.com/kylecapybara/pfd-tikz-studio)
+
+Process flow diagrams are easy to sketch and surprisingly annoying to typeset. The first version of this project used Tkinter. PFD TikZ Studio is the web-app version: a static, client-side editor that runs in a browser and exports diagrams as TikZ code.
+
+The editor uses an SVG canvas with grid snapping, pan and zoom controls, undo and redo, and an inspector for geometry and styling. It includes common process equipment such as pumps, heat exchangers, columns, tanks, reactors, separators, valves, and compressors. Streams can be drawn as lines, orthogonal pipes, arrows, or bidirectional connections.
+
+The custom-block editor lets users build equipment symbols from lines, rectangles, and circles. Diagrams can be saved as JSON and loaded again later. The exporter writes semantic TikZ commands for shapes, connections, labels, and Bezier curves, so the result remains editable and scales cleanly in LaTeX.
+
+The app has no backend or build step. It can be opened directly as a static site, which also makes it a natural fit for GitHub Pages.

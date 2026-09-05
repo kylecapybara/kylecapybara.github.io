@@ -52,5 +52,14 @@
   "writing/engl110 research/index.qmd": {
     "index.html": "4a69b37e",
     "index.tex": "b3c2957a"
+  },
+  "projects/pfd maker v2/index.qmd": {
+    "index.html": "bcc7a894"
+  },
+  "projects/2026 grfp winners/index.qmd": {
+    "index.html": "bf393a2b"
+  },
+  "projects/pressure tool/index.qmd": {
+    "index.html": "487295e6"
   }
 }

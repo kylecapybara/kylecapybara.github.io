@@ -12,4 +12,4 @@ about:
 
 ---
 
-(insert bio here)
+I'm a chemical engineering student at the University of Delaware, originally from Reading, Pennsylvania. I work with Arthi Jayaraman's lab on computational studies of block copolymer structures, and I’m an R&D co-op with DuPont Water Solutions, where I work on ion-exchange resin synthesis and applications. I’m interested in polymer science, statistics, data science, and signal processing, especially where they overlap. I plan to pursue a PhD in chemical engineering focused on polymer physics and machine learning.
