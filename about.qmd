@@ -13,19 +13,18 @@ about:
 
 ---
 
-# About me
 
-I'm a chemical engineering student at the University of Delaware, originally from Reading, Pennsylvania. I work with Arthi Jayaraman's lab on computational studies of block-copolymer structures, and I'm an R&D co-op with DuPont Water Solutions, where I work on ion-exchange resin synthesis and applications.
+I'm a chemical engineering student at the University of Delaware, originally from Reading, Pennsylvania. I work with Arthi Jayaraman's lab on computational studies of polymer structures, and I'm an R&D co-op with DuPont Water Solutions, where I work on ion-exchange resin synthesis and applications.
 
-## Interests
+### Interests
 
 I'm interested in polymer science, statistics, data science, and signal processing, especially where they overlap. I plan to pursue a PhD in chemical engineering focused on polymer physics and machine learning.
 
-## Current work
+### Current work
 
-At DuPont, I work on the synthesis and application of ion-exchange resins. In the Jayaraman Lab, I use molecular simulation and analysis to study block-copolymer structures. My personal projects are usually small scientific tools, data analyses, or experiments in making technical work easier to inspect and reuse.
+At DuPont, I work on the synthesis and application of ion-exchange resins. In the Jayaraman Lab, I use molecular dynamics (MD) simulations and house-made analysis to study thermal properties of coarse-grained polymer structures. My personal projects are usually small scientific tools, data analyses, or experiments in making technical work easier to inspect and reuse.
 
-## Background
+### Background
 
 I like work that connects physical intuition with computation. That might mean writing a browser tool for lab data, building a constrained optimization pipeline, or using simulation to ask a question about a material.
 
