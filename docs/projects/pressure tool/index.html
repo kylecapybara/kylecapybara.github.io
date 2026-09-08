@@ -211,7 +211,7 @@ window.Quarto = {
 <p>Vapor-liquid equilibrium experiments produce pressure signals that still need to be turned into a useful set of equilibrium values. I built this tool for CHEG345 at the University of Delaware to make that analysis faster without hiding the decisions behind a script.</p>
 <p>The tool accepts CSV files with arbitrary columns, plots the selected variables in the browser, and lets the user mark analysis regions directly on the chart. Each region produces a mean, standard deviation, and point count. Regions can be moved or resized after they are created, so the analysis can be corrected without starting over.</p>
 <p>The tool also includes a linear drift correction for signals that slowly move during an experiment:</p>
-<p><span class="math display">\[y_{corrected}(x) = y(x) - m(x - x_{start})\]</span></p>
+<p><span class="math display">\[y_\text{corrected}(x) = y(x) - m(x - x_\text{start})\]</span></p>
 <p>The correction leaves the signal unchanged at the selected starting point, which avoids introducing a jump into the data. Results can be exported as a CSV file or copied directly into a spreadsheet, with control over the number of significant figures.</p>
 <p>Everything runs client-side with Chart.js and Papa Parse. There is no backend and no data upload, which makes the tool easy to use with lab data that should stay on the user’s computer.</p>
 

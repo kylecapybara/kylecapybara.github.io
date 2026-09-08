@@ -179,9 +179,9 @@ gtag('config', 'G-E8T39RJ05T', { 'anonymize_ip': true});
 <div class="project-links">
 <p><a href="https://kylecapybara.github.io/pfd-tikz-studio/">Open the app</a> · <a href="https://github.com/kylecapybara/pfd-tikz-studio">View the source on GitHub</a></p>
 </div>
-<p>Process flow diagrams are easy to sketch and surprisingly annoying to typeset. The first version of this project used Tkinter. PFD TikZ Studio is the web-app version: a static, client-side editor that runs in a browser and exports diagrams as TikZ code.</p>
+<p>Process flow diagrams are easy to sketch and surprisingly annoying to typeset. The first version of this project used Tkinter. PFD TikZ Studio is the web-app version: a static, client-side editor that exports diagrams as TikZ code.</p>
 <p>The editor uses an SVG canvas with grid snapping, pan and zoom controls, undo and redo, and an inspector for geometry and styling. It includes common process equipment such as pumps, heat exchangers, columns, tanks, reactors, separators, valves, and compressors. Streams can be drawn as lines, orthogonal pipes, arrows, or bidirectional connections.</p>
-<p>The custom-block editor lets users build equipment symbols from lines, rectangles, and circles. Diagrams can be saved as JSON and loaded again later. The exporter writes semantic TikZ commands for shapes, connections, labels, and Bezier curves, so the result remains editable and scales cleanly in LaTeX.</p>
+<p>The custom-block editor lets users build equipment symbols from lines, rectangles, and circles. Diagrams can be saved as JSON and loaded again later. The exporter writes semantic TikZ commands for shapes, connections, labels, and Bezier curves, so the result remains editable and scales cleanly in LaTeX. exporting figures as matplotlib code is a work in progress and much more annoying than I originally thought it would be.</p>
 <p>The app has no backend or build step. It can be opened directly as a static site, which also makes it a natural fit for GitHub Pages.</p>
 
 

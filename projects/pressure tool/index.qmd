@@ -27,7 +27,7 @@ The tool accepts CSV files with arbitrary columns, plots the selected variables 
 
 The tool also includes a linear drift correction for signals that slowly move during an experiment:
 
-$$y_{corrected}(x) = y(x) - m(x - x_{start})$$
+$$y_\text{corrected}(x) = y(x) - m(x - x_\text{start})$$
 
 The correction leaves the signal unchanged at the selected starting point, which avoids introducing a jump into the data. Results can be exported as a CSV file or copied directly into a spreadsheet, with control over the number of significant figures.
 

@@ -23,8 +23,5 @@ image-alt: "Chart showing institutional pathways among leading NSF graduate fell
 
 This project explores the 2026 National Science Foundation Graduate Research Fellowship awards. I was especially interested in how award fields connect to institutions, career stages, and the path into Chemical Engineering graduate programs.
 
-The analysis separates senior undergraduates from first-year graduate students when the award data makes that possible. It also compares a winner's baccalaureate institution with their current institution, then uses those relationships to examine institutional pathways in Chemical Engineering and other highly represented fields.
-
 The report includes yearly award counts, inferred career stages, graduate-school destinations, institutional concentration, baccalaureate sources, broad fields, and engineering topics. The figures and tables come from a Python notebook and are presented in a Quarto report so the analysis can be rerun and read as one document.
 
-The public repository does not include person-level award data. It includes the cleared analysis outputs, aggregate tables, figures, and the instructions needed to reproduce the report with an appropriate local copy of the source data.

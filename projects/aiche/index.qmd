@@ -12,9 +12,9 @@ categories: [optimization, python, automation]
 **Output:** A repeatable workbook for forming balanced mentorship groups
 :::
 
-Forming mentorship groups by hand gets difficult quickly. Each person can fit with several others, but the groups still have to respect role counts, locked pairings, and the requirement that every person appears exactly once. With 32 mentors and 47 mentees in the current response set, the number of possible assignments is too large to inspect manually.
+Forming mentorship groups by hand gets difficult quickly. Each person can fit with several others, but the groups still have to respect role counts, locked pairings, and the requirement that every person appears exactly once. With my set of 32 mentors and 47 mentees, the number of possible assignments was too large to inspect manually.
 
-I built a Python pipeline that turns the response workbook into an interest-based grouping. It cleans the responses, scores possible groups, searches across several feasible group shapes, and writes the result back to a formatted Excel workbook with tabs for parsed people, groups, group details, locked pairings, and exceptions.
+I built a Python pipeline that turn the response workbook into an interest-based grouping. It cleans the responses, scores possible groups, searches across several feasible group shapes, and writes the result back to a formatted Excel workbook with tabs for parsed people, groups, group details, locked pairings, and exceptions.
 
 ## The Lloyd-style part
 
@@ -34,15 +34,15 @@ The main difference is that a group's "center" is implicit. It is the combinatio
 
 ## Scoring a group
 
-Each pair receives a compatibility score based on three pieces of information:
+Each pair inside the group receives a compatibility score based on three pieces of information:
 
 - shared-tag density, which rewards focused matches;
 - the fraction of the smaller interest list that overlaps; and
 - a mismatch rate, which penalizes interests that do not overlap.
 
-Mentor-to-mentee matches receive the most weight. Mentee-to-mentee matches matter too, while mentor-to-mentor matches have the smallest weight. The score also includes a small preference for groups with more distinct shared interests and penalties for less useful group shapes.
+Mentor-to-mentee matches receive the most weight. Mentee-to-mentee matches matter too, while mentor-to-mentor matches have the smallest weight. The score also includes a small preference for groups with more distinct shared interests (i.e. a pair who both selected 3 interests is stronger than a pair who checked every box) and penalties for less useful group shapes.
 
-The search ranks complete assignments by their weakest group first, then by their total score. That choice matters. Maximizing only the total could produce several excellent groups and leave one group with almost nothing in common. The maximin objective makes the weakest group harder to hide.
+The search ranks complete assignments by their weakest group first, then by their total score. If you maximize only the total that could produce several excellent groups and leave one group with almost nothing in common. So you realllly want to make the set of groups with the best worst group.
 
 ## Managing the search space
 
@@ -50,10 +50,9 @@ The pipeline supports several group shapes, including 1 mentor + 1 mentee, 1 men
 
 That combination is useful because the local search can find a strong neighborhood without pretending that one starting arrangement is enough. It is still a heuristic. The full space is too large for brute force, so the goal is a good, balanced assignment that can be explained and rerun, not a claim that the one mathematically perfect grouping has been found.
 
-Locked pairings are treated as small components during initialization and are never broken by later swaps. This lets the organizer keep a requested mentor-mentee pairing together while the rest of the assignment remains flexible.
 
 ## Result
 
 For the current response set, the pipeline forms 17 groups: 15 groups with 2 mentors and 3 mentees, plus 2 one-to-one groups. All 47 mentees are assigned, and the workbook reports no unassigned mentees.
 
-The interesting part of the project is not the final spreadsheet. It is the decision to treat group formation as constrained clustering and then use a Lloyd-like local search to make the problem manageable. The output is repeatable, inspectable, and easy to regenerate when another response arrives or a pairing needs to be locked.
+This was overall a successful POC that you can treat group formation as constrained clustering and then use a Lloyd-like local search to make the problem manageable. The output is repeatable, inspectable, and easy (quick!!) to regenerate when another response arrives. When I originally just told an LLM (Mistral Vibe inside opencode) something along the lines of 'make a python pipeline to make the best groups' it tried to make a manual search through all possibilities!

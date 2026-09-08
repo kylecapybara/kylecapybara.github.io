@@ -16,15 +16,13 @@ image: R0001528.png
 image-alt: "Portrait of Kyle Wodehouse"
 description: "Portfolio of Kyle Wodehouse, a chemical engineering student building scientific tools and studying polymer systems."
 comments: false
+toc: false
 ---
 
 # What I work on
 
-I'm a chemical engineering student at the University of Delaware who builds tools and studies materials at the intersection of polymer science, data analysis, and scientific computing. I'm also an R&D co-op at DuPont Water Solutions, where I work on ion-exchange resin synthesis and applications, and a member of the Jayaraman Lab, where I calculate thermal properties of block-copolymer structures with LAMMPS.
+I'm a chemical engineering student at the University of Delaware who builds tools and studies the intersection of polymer science, data analysis, and scientific computing. I'm also an R&D co-op at DuPont Water Solutions, where I work on ion-exchange resin synthesis and applications, and a member of the Jayaraman Lab, where I study the relationship between polymer structure and thermal properties through molecular dynamics (MD) simulations in LAMMPS.
 
-::: {.home-intro}
-My work usually starts with a messy experimental or research question and ends with a clearer model, a useful tool, or a result someone else can inspect and reuse.
-:::
 
 # Selected work
 
