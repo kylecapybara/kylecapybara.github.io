@@ -27,6 +27,20 @@ body {
   max-width: none;
 }
 
+.quarto-about-jolla {
+  align-items: flex-start;
+}
+
+.quarto-about-jolla .quarto-title h1.title,
+.quarto-about-jolla .quarto-title .description,
+.quarto-about-jolla main {
+  text-align: left;
+}
+
+.quarto-about-jolla .about-links {
+  align-self: flex-start;
+}
+
 @media (min-width: 992px) {
   body.fullcontent:not(.floating):not(.docked) .page-columns:has(.quarto-about-trestles) {
     grid-template-columns:
